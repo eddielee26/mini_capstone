@@ -14,3 +14,12 @@ product = Product.new(
 )
 
 product.save
+
+product = Product.new(
+  name: "name2",
+  price: 2,
+  image_url: "image_url2",
+  description: "description2"
+)
+
+product.save
