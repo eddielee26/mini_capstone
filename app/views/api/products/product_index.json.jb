@@ -1,0 +1,9 @@
+@products_index.map do |prod|
+  {
+    id: prod.id,
+    name: prod.name,
+    price: prod.price,
+    image_url: prod.image_url,
+    description: prod.description
+  }
+end
