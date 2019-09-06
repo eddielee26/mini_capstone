@@ -17,12 +17,6 @@ class Api::ProductsController < ApplicationController
     else 
       @products_index = @products_index.order(:id)
     end
-    # @products_index = Product.where("name iLIKE ?", "%#{params[:search]}%")
-    # @products_index = Product.where("price < ?", "#{params[:price]}")
-    # if params[:discounted]
-    #   @products_index = Product.where("price < ?", "#{params[:price]}")
-    # end
-
     render 'product_index.json.jb'
   end
 
@@ -35,7 +29,7 @@ class Api::ProductsController < ApplicationController
     @product = Product.create(
       name: params[:name],
       price: params[:price],
-      image_url: params[:image_url],
+      # image_url: params[:image_url],
       description: params[:description]
     )
     if @product.save
@@ -50,7 +44,7 @@ class Api::ProductsController < ApplicationController
     @product.id = params[:id] || @product.id
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.image_url = params[:image_url] || @product.image_url
+    # @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
     if @product.save
       render 'product_show.json.jb'

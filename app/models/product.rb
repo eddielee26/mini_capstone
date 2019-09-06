@@ -5,13 +5,19 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
   validates :description, length: { in: 10..500 }
 
+  def supplier
+    # return the supplier that THIS (self) product belongs to
+    Supplier.find_by(id: supplier_id) 
+    #returns a single supplier hash whos id matches THIS product's supplier_id
+  end
+
   def is_discounted?
-    # price <= 10 # ? in method
-    if price < 2
-      true
-    else
-      false
-    end
+    price <= 10 # ? in method
+    # if price < 2
+    #   true
+    # else
+    #   false
+    # end
   end
 
   def tax

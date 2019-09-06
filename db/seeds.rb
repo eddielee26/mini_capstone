@@ -27,3 +27,6 @@
 # Supplier.create(name: "Amazon", email: "amazon@gmail.com", phone_number: "121-1212")
 # Supplier.create(name: "Newegg", email: "newegg@gmail.com", phone_number: "232-2323")
 # Supplier.create(name: "Thinkgeek", email: "thinkgeek@gmail.com", phone_number: "343-3434")
+
+# supplier is farmer, product is cow
+# image is cow, product is farmer
