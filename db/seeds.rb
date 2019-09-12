@@ -30,3 +30,5 @@
 
 # supplier is farmer, product is cow
 # image is cow, product is farmer
+
+# Image.create(url: "https://ss7.vzw.com/is/image/VerizonWireless/palm-phone-gold?$device-lg$", product_id: 3)

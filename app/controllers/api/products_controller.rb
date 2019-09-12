@@ -1,5 +1,7 @@
 class Api::ProductsController < ApplicationController
 
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
     @products_index = Product.all.order(:id)
     if params[:search]
@@ -8,6 +10,11 @@ class Api::ProductsController < ApplicationController
 
     if params[:discounted]
       @products_index = @products_index.where("price < ?", 5)
+    end
+
+    if params[:category]
+      category = Category.find_by("name iLike ?", params[:category])
+      @products_index = category.products
     end
 
     if params[:sort] == "price" && params[:sort_order] == 'asc'
@@ -29,7 +36,6 @@ class Api::ProductsController < ApplicationController
     @product = Product.create(
       name: params[:name],
       price: params[:price],
-      # image_url: params[:image_url],
       description: params[:description]
     )
     if @product.save
@@ -44,7 +50,6 @@ class Api::ProductsController < ApplicationController
     @product.id = params[:id] || @product.id
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    # @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
     if @product.save
       render 'product_show.json.jb'
