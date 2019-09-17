@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get "/products/:id" => "products#show"
 
+  get "/products/:id/edit" => "products#edit"
+
   # EXAMPLE JSON ROUTE WITH API NAMESPACE
   # namespace :api do
   #   get "/photos" => "photos#index"
