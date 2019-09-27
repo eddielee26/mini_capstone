@@ -1,3 +1,4 @@
+User.destroy_all
 User.create!([
   {name: "eddie", email: "eddie@gmail.com", password_digest: "$2a$12$pvftiIbuf7Tbv/f2ISGkY.W4O7G6Gtj63vch5vrzdb2mSBbw29IWK", admin: true},
   {name: "jay", email: "jay@gmail.com", password_digest: "$2a$12$MMfnQhoS8sc4rpxGsCG9AOa2hiwlWi5TGM8E/Xr3/3iUZ/8tRQ99q", admin: false}
